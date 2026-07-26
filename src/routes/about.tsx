@@ -1,0 +1,107 @@
+import { createFileRoute } from "@tanstack/react-router";
+import storyImage from "@/assets/story-warehouse.jpg";
+import { PageHero } from "@/components/site/PageHero";
+
+export const Route = createFileRoute("/about")({
+  head: () => ({
+    meta: [
+      { title: "Our Story — Creed Design & Construction East Africa" },
+      {
+        name: "description",
+        content:
+          "A premier construction and design firm specializing in innovative, sustainable and high-quality building solutions across East Africa.",
+      },
+      { property: "og:title", content: "Our Story — Creed Design & Construction East Africa" },
+      {
+        property: "og:description",
+        content:
+          "Company overview of Creed Design and Construction Company East Africa Ltd: expertise, values and approach.",
+      },
+    ],
+  }),
+  component: AboutPage,
+});
+
+function AboutPage() {
+  return (
+    <>
+      <PageHero
+        eyebrow="Company overview"
+        lead="OUR"
+        highlight="STORY"
+        description="Creed Design and Construction Company East Africa Ltd is a premier construction and design firm specializing in delivering innovative, sustainable and high-quality building solutions."
+      />
+
+      <section className="mx-auto grid max-w-6xl items-start gap-14 px-4 py-20 lg:grid-cols-[1.1fr_0.9fr]">
+        <div className="space-y-6 text-base leading-relaxed text-muted-foreground">
+          <h2 className="text-2xl font-bold text-primary">Who we are</h2>
+          <p>
+            <strong className="text-foreground">
+              Creed Design and Construction Company East Africa Ltd
+            </strong>{" "}
+            is a premier construction and design firm specializing in delivering innovative,
+            sustainable, and high-quality building solutions. With a team of highly skilled
+            personnel we are committed to transforming visions into remarkable structures that
+            exceed client expectations. Our expertise spans residential, commercial, and industrial
+            projects, with a focus on blending modern aesthetics with functionality.
+          </p>
+          <p>
+            At Creed, we prioritize sustainability, leveraging cutting-edge technologies and
+            eco-friendly materials to create lasting value for our clients and communities. Our
+            dedication to excellence, integrity, and timely project delivery has established us as a
+            trusted partner in the construction industry. With a passion for redefining spaces,
+            Creed Design and{" "}
+            <strong className="text-foreground">Construction Company East Africa Ltd</strong> stands
+            as a symbol of innovation and reliability in the region.
+          </p>
+          <div className="grid gap-4 pt-4 sm:grid-cols-3">
+            {["Residential", "Commercial", "Industrial"].map((sector) => (
+              <div key={sector} className="border-l-4 border-accent bg-surface px-4 py-5">
+                <p className="text-sm font-bold uppercase tracking-[0.12em] text-primary">
+                  {sector}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div className="relative mx-auto w-full max-w-md">
+          <div className="absolute -left-6 -top-6 h-20 w-20 rounded-full bg-accent" />
+          <div className="ring-photo relative aspect-square">
+            <img
+              src={storyImage}
+              alt="Steel frame warehouse structure built by Creed"
+              loading="lazy"
+              width={1200}
+              height={1200}
+              className="h-full w-full object-cover"
+            />
+          </div>
+        </div>
+      </section>
+
+      <section className="faceted border-y border-border">
+        <div className="mx-auto grid max-w-6xl gap-8 px-4 py-16 md:grid-cols-3">
+          {[
+            {
+              title: "Excellence",
+              body: "Quality workmanship checked at every stage, from foundation to finishes.",
+            },
+            {
+              title: "Integrity",
+              body: "Transparent costing, honest programmes and accountable site management.",
+            },
+            {
+              title: "Innovation",
+              body: "Modern methods and materials that redefine how spaces are built and used.",
+            },
+          ].map((value) => (
+            <article key={value.title} className="bg-card p-7 shadow-lift">
+              <h3 className="text-xl font-bold text-primary">{value.title}</h3>
+              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{value.body}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+    </>
+  );
+}
