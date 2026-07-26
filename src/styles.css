@@ -142,11 +142,10 @@
   color: var(--color-foreground);
   border-radius: 2px;
   transition: border-color 150ms ease, box-shadow 150ms ease;
-}
-@utility input {
   &:focus {
     outline: none;
     border-color: var(--color-primary);
     box-shadow: 0 0 0 3px color-mix(in oklab, var(--color-primary) 18%, transparent);
   }
 }
+
