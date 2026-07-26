@@ -33,17 +33,28 @@ function MissionPage() {
       />
 
       <section className="mx-auto grid max-w-6xl items-center gap-14 px-4 py-20 lg:grid-cols-2">
-        <div className="relative mx-auto w-full max-w-md lg:order-first">
-          <div className="absolute -bottom-6 right-8 h-16 w-16 rounded-full bg-accent" />
-          <div className="ring-photo relative aspect-square">
-            <img
-              src={missionImage}
-              alt="Steel portal frame structure at sunset on a Creed project"
-              loading="lazy"
-              width={1200}
-              height={1200}
-              className="h-full w-full object-cover"
-            />
+        <div className="space-y-5 lg:order-first">
+          <div className="relative mx-auto w-full max-w-md">
+            <div className="absolute -bottom-6 right-8 h-16 w-16 rounded-full bg-accent" />
+            <div className="ring-photo relative aspect-square">
+              <img
+                src={missionImage}
+                alt="Steel portal frame structure at sunset on a Creed project"
+                loading="lazy"
+                width={1200}
+                height={1200}
+                className="h-full w-full object-cover"
+              />
+            </div>
+          </div>
+          <div className="border-t-4 border-accent bg-card p-6 shadow-lift">
+            <h3 className="text-sm font-bold uppercase tracking-[0.14em] text-primary">Our promise</h3>
+            <ul className="mt-3 space-y-2 text-sm text-muted-foreground">
+              <li>• Transparent costing and honest programmes.</li>
+              <li>• Safety-first supervision on every site.</li>
+              <li>• Sustainable materials wherever possible.</li>
+              <li>• On-time handover with a proper snag list.</li>
+            </ul>
           </div>
         </div>
         <div className="space-y-10">
