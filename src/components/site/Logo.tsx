@@ -7,9 +7,9 @@ export function Logo({ inverted = false }: { inverted?: boolean }) {
       <img
         src={logoAsset.url}
         alt=""
-        width={220}
-        height={64}
-        className="h-12 w-auto object-contain md:h-14"
+        width={260}
+        height={76}
+        className="h-14 w-auto object-contain md:h-16"
       />
     </Link>
   );
