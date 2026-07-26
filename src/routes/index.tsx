@@ -1,8 +1,9 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, Building2, HardHat, Ruler, ShieldCheck } from "lucide-react";
+import { ArrowRight, Building2, Download, HardHat, MessageCircle, Ruler, ShieldCheck } from "lucide-react";
 import heroImage from "@/assets/hero-steel-frame.jpg";
 import storyImage from "@/assets/story-warehouse.jpg";
 import { SectionHeading } from "@/components/site/SectionHeading";
+import { COMPANY_PROFILE_URL, whatsappLink } from "@/lib/contact";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -72,18 +73,30 @@ function Index() {
           </p>
           <div className="mt-9 flex flex-wrap gap-3">
             <Link
-              to="/services"
+              to="/quote"
               className="inline-flex items-center gap-2 rounded-sm accent-gradient px-6 py-3.5 text-xs font-bold uppercase tracking-[0.14em] text-accent-foreground shadow-lift"
             >
-              Our services
+              Request a quote
               <ArrowRight className="h-4 w-4" aria-hidden="true" />
             </Link>
-            <Link
-              to="/contact"
+            <a
+              href={whatsappLink("Hello Creed, I'd like to talk about a project.")}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-sm bg-[#25D366] px-6 py-3.5 text-xs font-bold uppercase tracking-[0.14em] text-white shadow-lift"
+            >
+              <MessageCircle className="h-4 w-4" aria-hidden="true" />
+              WhatsApp us
+            </a>
+            <a
+              href={COMPANY_PROFILE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-2 rounded-sm border border-primary-foreground/40 px-6 py-3.5 text-xs font-bold uppercase tracking-[0.14em] text-primary-foreground transition-colors hover:border-accent hover:text-accent"
             >
-              Start a project
-            </Link>
+              <Download className="h-4 w-4" aria-hidden="true" />
+              Company Profile
+            </a>
           </div>
         </div>
       </section>

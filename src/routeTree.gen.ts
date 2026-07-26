@@ -11,6 +11,8 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ServicesRouteImport } from './routes/services'
+import { Route as QuoteRouteImport } from './routes/quote'
+import { Route as PaymentsRouteImport } from './routes/payments'
 import { Route as MissionAndVisionRouteImport } from './routes/mission-and-vision'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as AboutRouteImport } from './routes/about'
@@ -24,6 +26,16 @@ const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
 const ServicesRoute = ServicesRouteImport.update({
   id: '/services',
   path: '/services',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const QuoteRoute = QuoteRouteImport.update({
+  id: '/quote',
+  path: '/quote',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PaymentsRoute = PaymentsRouteImport.update({
+  id: '/payments',
+  path: '/payments',
   getParentRoute: () => rootRouteImport,
 } as any)
 const MissionAndVisionRoute = MissionAndVisionRouteImport.update({
@@ -52,6 +64,8 @@ export interface FileRoutesByFullPath {
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/mission-and-vision': typeof MissionAndVisionRoute
+  '/payments': typeof PaymentsRoute
+  '/quote': typeof QuoteRoute
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
 }
@@ -60,6 +74,8 @@ export interface FileRoutesByTo {
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/mission-and-vision': typeof MissionAndVisionRoute
+  '/payments': typeof PaymentsRoute
+  '/quote': typeof QuoteRoute
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
 }
@@ -69,6 +85,8 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/mission-and-vision': typeof MissionAndVisionRoute
+  '/payments': typeof PaymentsRoute
+  '/quote': typeof QuoteRoute
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
 }
@@ -79,6 +97,8 @@ export interface FileRouteTypes {
     | '/about'
     | '/contact'
     | '/mission-and-vision'
+    | '/payments'
+    | '/quote'
     | '/services'
     | '/sitemap.xml'
   fileRoutesByTo: FileRoutesByTo
@@ -87,6 +107,8 @@ export interface FileRouteTypes {
     | '/about'
     | '/contact'
     | '/mission-and-vision'
+    | '/payments'
+    | '/quote'
     | '/services'
     | '/sitemap.xml'
   id:
@@ -95,6 +117,8 @@ export interface FileRouteTypes {
     | '/about'
     | '/contact'
     | '/mission-and-vision'
+    | '/payments'
+    | '/quote'
     | '/services'
     | '/sitemap.xml'
   fileRoutesById: FileRoutesById
@@ -104,6 +128,8 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   ContactRoute: typeof ContactRoute
   MissionAndVisionRoute: typeof MissionAndVisionRoute
+  PaymentsRoute: typeof PaymentsRoute
+  QuoteRoute: typeof QuoteRoute
   ServicesRoute: typeof ServicesRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
 }
@@ -122,6 +148,20 @@ declare module '@tanstack/react-router' {
       path: '/services'
       fullPath: '/services'
       preLoaderRoute: typeof ServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/quote': {
+      id: '/quote'
+      path: '/quote'
+      fullPath: '/quote'
+      preLoaderRoute: typeof QuoteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/payments': {
+      id: '/payments'
+      path: '/payments'
+      fullPath: '/payments'
+      preLoaderRoute: typeof PaymentsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/mission-and-vision': {
@@ -160,6 +200,8 @@ const rootRouteChildren: RootRouteChildren = {
   AboutRoute: AboutRoute,
   ContactRoute: ContactRoute,
   MissionAndVisionRoute: MissionAndVisionRoute,
+  PaymentsRoute: PaymentsRoute,
+  QuoteRoute: QuoteRoute,
   ServicesRoute: ServicesRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
 }

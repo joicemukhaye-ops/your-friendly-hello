@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
-import { Mail, MapPin, Phone } from "lucide-react";
+import { Download, Mail, MapPin, MessageCircle, Phone } from "lucide-react";
 import { Logo } from "./Logo";
+import { COMPANY_PROFILE_URL, whatsappLink } from "@/lib/contact";
 
 export function SiteFooter() {
   return (
@@ -34,11 +35,41 @@ export function SiteFooter() {
                 </Link>
               </li>
               <li>
+                <Link to="/quote" className="hover:text-accent">
+                  Get a Quote
+                </Link>
+              </li>
+              <li>
+                <Link to="/payments" className="hover:text-accent">
+                  Make a Payment
+                </Link>
+              </li>
+              <li>
                 <Link to="/contact" className="hover:text-accent">
                   Contact Us
                 </Link>
               </li>
+              <li>
+                <a
+                  href={COMPANY_PROFILE_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 hover:text-accent"
+                >
+                  <Download className="h-3.5 w-3.5" aria-hidden="true" />
+                  Company Profile
+                </a>
+              </li>
             </ul>
+            <a
+              href={whatsappLink("Hello Creed, I'd like to talk about a project.")}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-5 inline-flex items-center gap-2 rounded-sm bg-[#25D366] px-4 py-2.5 text-xs font-bold uppercase tracking-[0.13em] text-white"
+            >
+              <MessageCircle className="h-4 w-4" aria-hidden="true" />
+              WhatsApp us
+            </a>
           </div>
           <div>
             <h3 className="text-sm font-bold uppercase tracking-[0.16em] text-accent">Get in touch</h3>

@@ -64,17 +64,40 @@ function AboutPage() {
             ))}
           </div>
         </div>
-        <div className="relative mx-auto w-full max-w-md">
-          <div className="absolute -left-6 -top-6 h-20 w-20 rounded-full bg-accent" />
-          <div className="ring-photo relative aspect-square">
-            <img
-              src={storyImage}
-              alt="Steel frame warehouse structure built by Creed"
-              loading="lazy"
-              width={1200}
-              height={1200}
-              className="h-full w-full object-cover"
-            />
+        <div className="space-y-5">
+          <div className="relative mx-auto w-full max-w-md">
+            <div className="absolute -left-6 -top-6 h-20 w-20 rounded-full bg-accent" />
+            <div className="ring-photo relative aspect-square">
+              <img
+                src={storyImage}
+                alt="Steel frame warehouse structure built by Creed"
+                loading="lazy"
+                width={1200}
+                height={1200}
+                className="h-full w-full object-cover"
+              />
+            </div>
+          </div>
+          <div className="border-t-4 border-accent bg-card p-6 shadow-lift">
+            <h3 className="text-sm font-bold uppercase tracking-[0.14em] text-primary">At a glance</h3>
+            <dl className="mt-4 grid grid-cols-2 gap-4">
+              <div>
+                <dt className="text-xs uppercase tracking-[0.12em] text-muted-foreground">Based in</dt>
+                <dd className="mt-1 text-2xl font-bold text-primary">Uganda</dd>
+              </div>
+              <div>
+                <dt className="text-xs uppercase tracking-[0.12em] text-muted-foreground">Sectors</dt>
+                <dd className="mt-1 text-2xl font-bold text-primary">3</dd>
+              </div>
+              <div>
+                <dt className="text-xs uppercase tracking-[0.12em] text-muted-foreground">Service lines</dt>
+                <dd className="mt-1 text-2xl font-bold text-primary">5</dd>
+              </div>
+              <div>
+                <dt className="text-xs uppercase tracking-[0.12em] text-muted-foreground">Coverage</dt>
+                <dd className="mt-1 text-2xl font-bold text-primary">East Africa</dd>
+              </div>
+            </dl>
           </div>
         </div>
       </section>
