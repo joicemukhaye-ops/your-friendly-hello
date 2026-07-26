@@ -2,6 +2,9 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Building2, Download, HardHat, MessageCircle, Ruler, ShieldCheck } from "lucide-react";
 import heroImage from "@/assets/hero-steel-frame.jpg";
 import storyImage from "@/assets/story-warehouse.jpg";
+import warehouseFrame from "@/assets/project-warehouse-frame.jpg.asset.json";
+import warehouseRoof from "@/assets/project-warehouse-roof.jpg.asset.json";
+import warehouseSteel from "@/assets/project-warehouse-steel.jpg.asset.json";
 import { SectionHeading } from "@/components/site/SectionHeading";
 import { COMPANY_PROFILE_URL, whatsappLink } from "@/lib/contact";
 
@@ -165,6 +168,39 @@ function Index() {
               className="h-full w-full object-cover"
             />
           </div>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-4 py-20">
+        <div className="flex flex-wrap items-end justify-between gap-4">
+          <SectionHeading lead="FEATURED" highlight="PROJECT" kicker="Recent work" />
+          <Link
+            to="/projects"
+            className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.14em] text-primary hover:text-accent"
+          >
+            View all projects
+            <ArrowRight className="h-4 w-4" aria-hidden="true" />
+          </Link>
+        </div>
+        <div className="mt-10 grid gap-6 lg:grid-cols-3">
+          {[warehouseFrame, warehouseSteel, warehouseRoof].map((img, i) => (
+            <figure key={img.url} className="shadow-lift">
+              <img
+                src={img.url}
+                alt="Processing Warehouse in Kayunga, Kangulumira — Concrete and Steel"
+                loading="lazy"
+                className="h-64 w-full object-cover"
+              />
+              <figcaption className="border-l-4 border-accent bg-card px-4 py-3">
+                <p className="text-xs font-bold uppercase tracking-[0.12em] text-accent">
+                  {i === 0 ? "Structure" : i === 1 ? "Steel work" : "Roofing"}
+                </p>
+                <p className="mt-1 text-sm font-semibold text-primary">
+                  Processing Warehouse · Kayunga
+                </p>
+              </figcaption>
+            </figure>
+          ))}
         </div>
       </section>
 
