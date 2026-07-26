@@ -1,5 +1,10 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { ArrowRight } from "lucide-react";
 import storyImage from "@/assets/story-warehouse.jpg";
+import denisAsset from "@/assets/team-denis.jpg.asset.json";
+import fuljensioAsset from "@/assets/team-fuljensio.jpg.asset.json";
+import michaelAsset from "@/assets/team-michael.jpg.asset.json";
+import edmundAsset from "@/assets/team-edmund.jpg.asset.json";
 import { PageHero } from "@/components/site/PageHero";
 
 export const Route = createFileRoute("/about")({
@@ -122,6 +127,47 @@ function AboutPage() {
               <h3 className="text-xl font-bold text-primary">{value.title}</h3>
               <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{value.body}</p>
             </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-4 py-20">
+        <div className="flex flex-wrap items-end justify-between gap-4">
+          <div>
+            <p className="text-xs font-bold uppercase tracking-[0.3em] text-accent">
+              Dedicated professionals
+            </p>
+            <h2 className="mt-3 text-3xl font-bold text-primary sm:text-4xl">Meet our team</h2>
+          </div>
+          <Link
+            to="/team"
+            className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.14em] text-primary hover:text-accent"
+          >
+            Full team
+            <ArrowRight className="h-4 w-4" aria-hidden="true" />
+          </Link>
+        </div>
+        <div className="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          {[
+            { name: "Kisekka Denis", role: "Team Leader", photo: denisAsset.url },
+            { name: "Kyagambiddwa Fuljensio", role: "Project Manager", photo: fuljensioAsset.url },
+            { name: "Matovu Michael", role: "Finance & Procurement", photo: michaelAsset.url },
+            { name: "Tabula Edmund Ntale", role: "Administrator", photo: edmundAsset.url },
+          ].map((m) => (
+            <div key={m.name} className="text-center">
+              <div className="mx-auto aspect-square w-full max-w-[200px] overflow-hidden rounded-full ring-4 ring-accent">
+                <img
+                  src={m.photo}
+                  alt={`${m.name}, ${m.role}`}
+                  loading="lazy"
+                  className="h-full w-full object-cover"
+                />
+              </div>
+              <h3 className="mt-4 text-base font-bold text-primary">{m.name}</h3>
+              <p className="mt-1 text-xs font-bold uppercase tracking-[0.14em] text-accent">
+                {m.role}
+              </p>
+            </div>
           ))}
         </div>
       </section>
