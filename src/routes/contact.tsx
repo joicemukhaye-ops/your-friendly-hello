@@ -1,7 +1,8 @@
-import { createFileRoute } from "@tanstack/react-router";
-import { Mail, MapPin, Phone } from "lucide-react";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { Clock, Download, Mail, MapPin, MessageCircle, Phone } from "lucide-react";
 import contactImage from "@/assets/contact-blueprints.jpg";
 import { PageHero } from "@/components/site/PageHero";
+import { COMPANY_PROFILE_URL, whatsappLink } from "@/lib/contact";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
