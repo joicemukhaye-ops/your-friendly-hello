@@ -9,7 +9,6 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as TeamRouteImport } from './routes/team'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ServicesRouteImport } from './routes/services'
 import { Route as QuoteRouteImport } from './routes/quote'
@@ -22,11 +21,6 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as PaymentsCompleteRouteImport } from './routes/payments_.complete'
 import { Route as ApiPublicPesapalIpnRouteImport } from './routes/api/public/pesapal-ipn'
 
-const TeamRoute = TeamRouteImport.update({
-  id: '/team',
-  path: '/team',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
   path: '/sitemap.xml',
@@ -93,7 +87,6 @@ export interface FileRoutesByFullPath {
   '/quote': typeof QuoteRoute
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
-  '/team': typeof TeamRoute
   '/payments/complete': typeof PaymentsCompleteRoute
   '/api/public/pesapal-ipn': typeof ApiPublicPesapalIpnRoute
 }
@@ -107,7 +100,6 @@ export interface FileRoutesByTo {
   '/quote': typeof QuoteRoute
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
-  '/team': typeof TeamRoute
   '/payments/complete': typeof PaymentsCompleteRoute
   '/api/public/pesapal-ipn': typeof ApiPublicPesapalIpnRoute
 }
@@ -122,7 +114,6 @@ export interface FileRoutesById {
   '/quote': typeof QuoteRoute
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
-  '/team': typeof TeamRoute
   '/payments_/complete': typeof PaymentsCompleteRoute
   '/api/public/pesapal-ipn': typeof ApiPublicPesapalIpnRoute
 }
@@ -138,7 +129,6 @@ export interface FileRouteTypes {
     | '/quote'
     | '/services'
     | '/sitemap.xml'
-    | '/team'
     | '/payments/complete'
     | '/api/public/pesapal-ipn'
   fileRoutesByTo: FileRoutesByTo
@@ -152,7 +142,6 @@ export interface FileRouteTypes {
     | '/quote'
     | '/services'
     | '/sitemap.xml'
-    | '/team'
     | '/payments/complete'
     | '/api/public/pesapal-ipn'
   id:
@@ -166,7 +155,6 @@ export interface FileRouteTypes {
     | '/quote'
     | '/services'
     | '/sitemap.xml'
-    | '/team'
     | '/payments_/complete'
     | '/api/public/pesapal-ipn'
   fileRoutesById: FileRoutesById
@@ -181,20 +169,12 @@ export interface RootRouteChildren {
   QuoteRoute: typeof QuoteRoute
   ServicesRoute: typeof ServicesRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
-  TeamRoute: typeof TeamRoute
   PaymentsCompleteRoute: typeof PaymentsCompleteRoute
   ApiPublicPesapalIpnRoute: typeof ApiPublicPesapalIpnRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/team': {
-      id: '/team'
-      path: '/team'
-      fullPath: '/team'
-      preLoaderRoute: typeof TeamRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/sitemap.xml': {
       id: '/sitemap.xml'
       path: '/sitemap.xml'
@@ -285,7 +265,6 @@ const rootRouteChildren: RootRouteChildren = {
   QuoteRoute: QuoteRoute,
   ServicesRoute: ServicesRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
-  TeamRoute: TeamRoute,
   PaymentsCompleteRoute: PaymentsCompleteRoute,
   ApiPublicPesapalIpnRoute: ApiPublicPesapalIpnRoute,
 }

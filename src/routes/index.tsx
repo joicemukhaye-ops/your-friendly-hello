@@ -2,9 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Building2, Download, HardHat, MessageCircle, Ruler, ShieldCheck } from "lucide-react";
 import heroImage from "@/assets/hero-steel-frame.jpg";
 import storyImage from "@/assets/story-warehouse.jpg";
-import warehouseFrame from "@/assets/project-warehouse-frame.jpg.asset.json";
-import warehouseRoof from "@/assets/project-warehouse-roof.jpg.asset.json";
-import warehouseSteel from "@/assets/project-warehouse-steel.jpg.asset.json";
+import { projects } from "@/lib/projects";
 import { SectionHeading } from "@/components/site/SectionHeading";
 import { COMPANY_PROFILE_URL, whatsappLink } from "@/lib/contact";
 
