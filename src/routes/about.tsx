@@ -1,31 +1,88 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, CheckCircle2 } from "lucide-react";
 import storyImage from "@/assets/story-warehouse.jpg";
 import denisAsset from "@/assets/team-denis.jpg.asset.json";
 import fuljensioAsset from "@/assets/team-fuljensio.jpg.asset.json";
 import michaelAsset from "@/assets/team-michael.jpg.asset.json";
 import edmundAsset from "@/assets/team-edmund.jpg.asset.json";
 import { PageHero } from "@/components/site/PageHero";
+import { projects, qualityImage } from "@/lib/projects";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "Our Story — Creed Design & Construction East Africa" },
+      { title: "Our Story & Team — Creed Design & Construction East Africa" },
       {
         name: "description",
         content:
-          "A premier construction and design firm specializing in innovative, sustainable and high-quality building solutions across East Africa.",
+          "Who we are, how we work and the people who lead Creed Design and Construction Company East Africa Ltd — innovative, sustainable, high-quality building solutions.",
       },
-      { property: "og:title", content: "Our Story — Creed Design & Construction East Africa" },
+      { property: "og:title", content: "Our Story & Team — Creed Design & Construction" },
       {
         property: "og:description",
         content:
-          "Company overview of Creed Design and Construction Company East Africa Ltd: expertise, values and approach.",
+          "Company overview, values, working approach and leadership team of Creed Design and Construction Company East Africa Ltd.",
       },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: AboutPage,
 });
+
+const team = [
+  {
+    name: "Kisekka Denis",
+    role: "Team Leader",
+    photo: denisAsset.url,
+    bio: "With over 5 years in the industry, Denis leads with a vision for innovative construction and design solutions.",
+    focus: "Design direction · Client relationships",
+  },
+  {
+    name: "Kyagambiddwa Fuljensio",
+    role: "Project Manager",
+    photo: fuljensioAsset.url,
+    bio: "Brings expert leadership in construction and implementation to ensure seamless project execution and structural excellence.",
+    focus: "Programme · Site supervision",
+  },
+  {
+    name: "Matovu Michael",
+    role: "Finance & Procurement",
+    photo: michaelAsset.url,
+    bio: "Excels in optimising budgets, streamlining procurement and ensuring cost-effective resource management.",
+    focus: "Budgets · Materials sourcing",
+  },
+  {
+    name: "Tabula Edmund Ntale",
+    role: "Administrator",
+    photo: edmundAsset.url,
+    bio: "Streamlines operations, enhances organisational efficiency and ensures seamless project coordination.",
+    focus: "Operations · Coordination",
+  },
+];
+
+const approach = [
+  {
+    step: "01",
+    title: "Listen & assess",
+    body: "We visit the site, understand the brief, the budget and the constraints before drawing anything.",
+  },
+  {
+    step: "02",
+    title: "Design & cost",
+    body: "Concept drawings, structural detailing and a transparent bill of quantities you can interrogate line by line.",
+  },
+  {
+    step: "03",
+    title: "Build & supervise",
+    body: "Skilled crews, fabricated steel, disciplined quality checks and weekly progress reporting.",
+  },
+  {
+    step: "04",
+    title: "Hand over & support",
+    body: "Snagging, clean-up, documented handover and a team that stays reachable after the last truck leaves.",
+  },
+];
 
 function AboutPage() {
   return (
@@ -58,6 +115,11 @@ function AboutPage() {
             Creed Design and{" "}
             <strong className="text-foreground">Construction Company East Africa Ltd</strong> stands
             as a symbol of innovation and reliability in the region.
+          </p>
+          <p>
+            From processing warehouses in Kayunga and coffee driers in Gomba to school dormitories
+            and glass skylights in Entebbe, our portfolio is built on structural steel, sound
+            concrete and site teams that finish what they start.
           </p>
           <div className="grid gap-4 pt-4 sm:grid-cols-3">
             {["Residential", "Commercial", "Industrial"].map((sector) => (
@@ -132,43 +194,95 @@ function AboutPage() {
       </section>
 
       <section className="mx-auto max-w-6xl px-4 py-20">
-        <div className="flex flex-wrap items-end justify-between gap-4">
-          <div>
-            <p className="text-xs font-bold uppercase tracking-[0.3em] text-accent">
-              Dedicated professionals
-            </p>
-            <h2 className="mt-3 text-3xl font-bold text-primary sm:text-4xl">Meet our team</h2>
+        <p className="text-xs font-bold uppercase tracking-[0.3em] text-accent">How we work</p>
+        <h2 className="mt-3 text-3xl font-bold text-primary sm:text-4xl">
+          From first site visit to handover
+        </h2>
+        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {approach.map((a) => (
+            <article key={a.step} className="border-t-4 border-accent bg-card p-6 shadow-lift">
+              <p className="text-3xl font-bold text-accent">{a.step}</p>
+              <h3 className="mt-3 text-lg font-bold text-primary">{a.title}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{a.body}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section id="team" className="faceted border-y border-border scroll-mt-24">
+        <div className="mx-auto max-w-6xl px-4 py-20">
+          <p className="text-xs font-bold uppercase tracking-[0.3em] text-accent">
+            Dedicated professionals
+          </p>
+          <h2 className="mt-3 text-3xl font-bold text-primary sm:text-4xl">Meet our team</h2>
+          <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground">
+            A small, accountable leadership team — you deal directly with the people running your
+            project, not a call centre.
+          </p>
+          <div className="mt-12 grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+            {team.map((m) => (
+              <article key={m.name} className="text-center">
+                <div className="mx-auto aspect-square w-full max-w-[220px] overflow-hidden rounded-full ring-4 ring-accent">
+                  <img
+                    src={m.photo}
+                    alt={`${m.name}, ${m.role} at Creed`}
+                    loading="lazy"
+                    className="h-full w-full object-cover"
+                  />
+                </div>
+                <h3 className="mt-5 text-lg font-bold text-primary">{m.name}</h3>
+                <p className="mt-1 text-xs font-bold uppercase tracking-[0.14em] text-accent">
+                  {m.role}
+                </p>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{m.bio}</p>
+                <p className="mt-3 text-xs uppercase tracking-[0.1em] text-muted-foreground">
+                  {m.focus}
+                </p>
+              </article>
+            ))}
           </div>
+        </div>
+      </section>
+
+      <section className="mx-auto grid max-w-6xl items-center gap-12 px-4 py-20 lg:grid-cols-2">
+        <div className="relative mx-auto w-full max-w-md">
+          <div className="absolute -left-5 -top-5 h-24 w-24 rounded-full bg-primary" />
+          <div className="ring-photo relative aspect-square">
+            <img
+              src={qualityImage}
+              alt="Steel portal frame erected by the Creed site team"
+              loading="lazy"
+              className="h-full w-full object-cover"
+            />
+          </div>
+        </div>
+        <div>
+          <p className="text-xs font-bold uppercase tracking-[0.3em] text-accent">
+            Commitment to quality
+          </p>
+          <h2 className="mt-3 text-3xl font-bold text-primary sm:text-4xl">
+            Certified, supervised, safe
+          </h2>
+          <ul className="mt-6 space-y-4 text-sm leading-relaxed text-muted-foreground">
+            {[
+              "Stringent quality control measures at every stage of construction.",
+              "Certified by the Uganda National Bureau of Registration to carry out our operations.",
+              "Regular safety training and strict adherence to on-site safety regulations.",
+              "Documented progress reporting so you always know where your project stands.",
+            ].map((item) => (
+              <li key={item} className="flex gap-3">
+                <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-accent" aria-hidden="true" />
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
           <Link
-            to="/team"
-            className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.14em] text-primary hover:text-accent"
+            to="/projects"
+            className="mt-8 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.14em] text-primary hover:text-accent"
           >
-            Full team
+            See {projects.length} featured projects
             <ArrowRight className="h-4 w-4" aria-hidden="true" />
           </Link>
-        </div>
-        <div className="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-          {[
-            { name: "Kisekka Denis", role: "Team Leader", photo: denisAsset.url },
-            { name: "Kyagambiddwa Fuljensio", role: "Project Manager", photo: fuljensioAsset.url },
-            { name: "Matovu Michael", role: "Finance & Procurement", photo: michaelAsset.url },
-            { name: "Tabula Edmund Ntale", role: "Administrator", photo: edmundAsset.url },
-          ].map((m) => (
-            <div key={m.name} className="text-center">
-              <div className="mx-auto aspect-square w-full max-w-[200px] overflow-hidden rounded-full ring-4 ring-accent">
-                <img
-                  src={m.photo}
-                  alt={`${m.name}, ${m.role}`}
-                  loading="lazy"
-                  className="h-full w-full object-cover"
-                />
-              </div>
-              <h3 className="mt-4 text-base font-bold text-primary">{m.name}</h3>
-              <p className="mt-1 text-xs font-bold uppercase tracking-[0.14em] text-accent">
-                {m.role}
-              </p>
-            </div>
-          ))}
         </div>
       </section>
     </>

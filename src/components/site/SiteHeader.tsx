@@ -7,7 +7,6 @@ import { COMPANY_PROFILE_URL, whatsappLink } from "@/lib/contact";
 const nav = [
   { to: "/", label: "Home" },
   { to: "/about", label: "Our Story" },
-  { to: "/team", label: "Team" },
   { to: "/projects", label: "Projects" },
   { to: "/services", label: "Services" },
   { to: "/quote", label: "Get a Quote" },

@@ -30,7 +30,7 @@ export function SiteFooter() {
                 </Link>
               </li>
               <li>
-                <Link to="/team" className="hover:text-accent">
+                <Link to="/about" hash="team" className="hover:text-accent">
                   Our Team
                 </Link>
               </li>

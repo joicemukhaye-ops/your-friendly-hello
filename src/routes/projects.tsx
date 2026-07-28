@@ -1,9 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, MapPin, Layers, MessageCircle } from "lucide-react";
+import { ArrowRight, Layers, MapPin, MessageCircle, ShieldCheck, Wrench } from "lucide-react";
 import { PageHero } from "@/components/site/PageHero";
-import frameAsset from "@/assets/project-warehouse-frame.jpg.asset.json";
-import roofAsset from "@/assets/project-warehouse-roof.jpg.asset.json";
-import steelAsset from "@/assets/project-warehouse-steel.jpg.asset.json";
+import { projects, qualityImage } from "@/lib/projects";
 import { whatsappLink } from "@/lib/contact";
 
 export const Route = createFileRoute("/projects")({
@@ -13,148 +11,192 @@ export const Route = createFileRoute("/projects")({
       {
         name: "description",
         content:
-          "Selected projects delivered by Creed Design and Construction Company East Africa Ltd, including the Kayunga processing warehouse in concrete and steel.",
+          "Warehouses, dormitories, skylights and agro-industrial facilities delivered by Creed Design and Construction Company East Africa Ltd across Uganda.",
       },
       { property: "og:title", content: "Our Projects — Creed Design & Construction" },
       {
         property: "og:description",
         content:
-          "See featured Creed builds across Uganda — industrial warehouses, commercial and residential developments.",
+          "Featured Creed builds: Kayunga processing warehouse, Kisubi glass skylight, Gomba coffee drier and St. Theresa dormitory.",
       },
-      { property: "og:image", content: frameAsset.url },
-      { name: "twitter:image", content: frameAsset.url },
+      { property: "og:image", content: projects[0].photos[0].src },
+      { name: "twitter:image", content: projects[0].photos[0].src },
+      { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: ProjectsPage,
 });
 
-const gallery = [
-  { src: frameAsset.url, caption: "Steel truss roof frame erected on concrete block walls." },
-  { src: steelAsset.url, caption: "Sunset progress: full steel purlin assembly and vent block walls." },
-  { src: roofAsset.url, caption: "Completed roof with ridge vents; boundary walling underway." },
+const disciplines = [
+  {
+    title: "Steel works",
+    body: "Precision engineering and durability — robust frameworks for industrial, commercial and residential structures. We fabricate and install high-quality steel products tailored to each project.",
+  },
+  {
+    title: "Concrete works",
+    body: "Strong foundations and structures that stand the design life. From reinforced concrete frames to intricate architectural detail, we build for sustainable performance.",
+  },
+  {
+    title: "Roofing & cladding",
+    body: "Long-span iron sheet roofs, ridge ventilation, skylights and flashings detailed to keep buildings dry, bright and comfortable year round.",
+  },
 ];
 
 function ProjectsPage() {
   return (
     <>
       <PageHero
-        eyebrow="Featured builds"
+        eyebrow="Featuring projects"
         lead="OUR"
         highlight="PROJECTS"
-        description="A look at some of the work delivered by our site teams across Uganda — from industrial warehouses to residential and commercial developments."
+        description="A look at work delivered by our site teams across Uganda — industrial warehouses, agro-processing facilities, school dormitories and specialist steel and glass installations."
       />
 
-      <section className="mx-auto max-w-6xl px-4 py-20">
-        <div className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr]">
-          <div>
-            <p className="text-xs font-bold uppercase tracking-[0.3em] text-accent">
-              Case study · Industrial
-            </p>
-            <h2 className="mt-4 text-4xl font-bold text-primary sm:text-5xl">
-              Processing Warehouse
-            </h2>
-            <ul className="mt-6 space-y-3 text-sm text-muted-foreground">
-              <li className="flex gap-3">
-                <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-accent" aria-hidden="true" />
-                <span>
-                  <strong className="text-foreground">Location:</strong> Kayunga, Kangulumira
-                </span>
-              </li>
-              <li className="flex gap-3">
-                <Layers className="mt-0.5 h-4 w-4 shrink-0 text-accent" aria-hidden="true" />
-                <span>
-                  <strong className="text-foreground">Materials:</strong> Concrete and Steel
-                </span>
-              </li>
-            </ul>
-            <p className="mt-6 text-base leading-relaxed text-muted-foreground">
-              A ground-up industrial processing warehouse combining reinforced concrete walls with a
-              purpose-engineered steel truss roof and ventilated block infill. Creed handled
-              structural design, foundations, block-work, steel fabrication and roofing through to
-              boundary walling and site works.
-            </p>
-            <div className="mt-8 grid grid-cols-3 gap-4 border-y border-border py-6">
+      <section className="mx-auto max-w-6xl px-4 py-16">
+        <div className="grid gap-6 md:grid-cols-3">
+          {disciplines.map((d) => (
+            <article key={d.title} className="border-t-4 border-accent bg-card p-7 shadow-lift">
+              <Wrench className="h-6 w-6 text-primary" aria-hidden="true" />
+              <h2 className="mt-4 text-xl font-bold text-primary">{d.title}</h2>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{d.body}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      {projects.map((p, index) => (
+        <section
+          key={p.slug}
+          id={p.slug}
+          className={index % 2 === 1 ? "faceted border-y border-border" : ""}
+        >
+          <div className="mx-auto max-w-6xl px-4 py-16">
+            <div className="grid gap-10 lg:grid-cols-[1fr_1.05fr] lg:items-start">
               <div>
-                <dt className="text-xs font-bold uppercase tracking-[0.12em] text-muted-foreground">
-                  Sector
-                </dt>
-                <dd className="mt-1 text-lg font-bold text-primary">Industrial</dd>
+                <p className="text-xs font-bold uppercase tracking-[0.3em] text-accent">
+                  Project {String(index + 1).padStart(2, "0")} · {p.sector}
+                </p>
+                <h2 className="mt-4 text-3xl font-bold text-primary sm:text-4xl">{p.title}</h2>
+                <ul className="mt-6 space-y-3 text-sm text-muted-foreground">
+                  <li className="flex gap-3">
+                    <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-accent" aria-hidden="true" />
+                    <span>
+                      <strong className="text-foreground">Location:</strong> {p.location}
+                    </span>
+                  </li>
+                  <li className="flex gap-3">
+                    <Layers className="mt-0.5 h-4 w-4 shrink-0 text-accent" aria-hidden="true" />
+                    <span>
+                      <strong className="text-foreground">Materials used:</strong> {p.materials}
+                    </span>
+                  </li>
+                  <li className="flex gap-3">
+                    <ShieldCheck className="mt-0.5 h-4 w-4 shrink-0 text-accent" aria-hidden="true" />
+                    <span>
+                      <strong className="text-foreground">Scope:</strong> {p.scope}
+                    </span>
+                  </li>
+                </ul>
+                <p className="mt-6 text-base leading-relaxed text-muted-foreground">{p.summary}</p>
+                <ul className="mt-6 space-y-2 border-l-4 border-accent pl-4 text-sm text-muted-foreground">
+                  {p.highlights.map((h) => (
+                    <li key={h}>{h}</li>
+                  ))}
+                </ul>
+                <div className="mt-8 flex flex-wrap gap-3">
+                  <Link
+                    to="/quote"
+                    className="inline-flex items-center gap-2 rounded-sm accent-gradient px-6 py-3.5 text-xs font-bold uppercase tracking-[0.14em] text-accent-foreground"
+                  >
+                    Start a similar project
+                    <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                  </Link>
+                  <a
+                    href={whatsappLink(`Hi Creed, I'd like to discuss a project like ${p.title}.`)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 rounded-sm bg-[#25D366] px-6 py-3.5 text-xs font-bold uppercase tracking-[0.14em] text-white"
+                  >
+                    <MessageCircle className="h-4 w-4" aria-hidden="true" />
+                    Chat on WhatsApp
+                  </a>
+                </div>
               </div>
-              <div>
-                <dt className="text-xs font-bold uppercase tracking-[0.12em] text-muted-foreground">
-                  Scope
-                </dt>
-                <dd className="mt-1 text-lg font-bold text-primary">Design + Build</dd>
+
+              <div className="grid gap-4 sm:grid-cols-2">
+                {p.photos.map((photo, i) => (
+                  <figure
+                    key={photo.src}
+                    className={`shadow-lift ${i === 0 ? "sm:col-span-2" : ""}`}
+                  >
+                    <img
+                      src={photo.src}
+                      alt={`${p.title}, ${p.location} — ${photo.caption}`}
+                      loading={index === 0 && i === 0 ? "eager" : "lazy"}
+                      className={`w-full object-cover ${i === 0 ? "h-72" : "h-52"}`}
+                    />
+                    <figcaption className="border-l-4 border-accent bg-card px-4 py-3 text-xs text-muted-foreground">
+                      {photo.caption}
+                    </figcaption>
+                  </figure>
+                ))}
               </div>
-              <div>
-                <dt className="text-xs font-bold uppercase tracking-[0.12em] text-muted-foreground">
-                  Structure
-                </dt>
-                <dd className="mt-1 text-lg font-bold text-primary">Steel + RCC</dd>
-              </div>
-            </div>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <Link
-                to="/quote"
-                className="inline-flex items-center gap-2 rounded-sm accent-gradient px-6 py-3.5 text-xs font-bold uppercase tracking-[0.14em] text-accent-foreground"
-              >
-                Start a similar project
-                <ArrowRight className="h-4 w-4" aria-hidden="true" />
-              </Link>
-              <a
-                href={whatsappLink("Hi Creed, I'd like to discuss a warehouse / industrial build.")}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-sm bg-[#25D366] px-6 py-3.5 text-xs font-bold uppercase tracking-[0.14em] text-white"
-              >
-                <MessageCircle className="h-4 w-4" aria-hidden="true" />
-                Chat on WhatsApp
-              </a>
             </div>
           </div>
-          <div className="grid gap-4">
-            {gallery.map((g, i) => (
-              <figure key={g.src} className={i === 0 ? "shadow-lift" : "shadow-lift"}>
-                <img
-                  src={g.src}
-                  alt={g.caption}
-                  loading={i === 0 ? "eager" : "lazy"}
-                  className="h-64 w-full object-cover sm:h-72"
-                />
-                <figcaption className="border-l-4 border-accent bg-card px-4 py-3 text-xs text-muted-foreground">
-                  {g.caption}
-                </figcaption>
-              </figure>
-            ))}
+        </section>
+      ))}
+
+      <section className="mx-auto grid max-w-6xl items-center gap-12 px-4 py-20 lg:grid-cols-2">
+        <div>
+          <p className="text-xs font-bold uppercase tracking-[0.3em] text-accent">
+            Commitment to quality
+          </p>
+          <h2 className="mt-4 text-3xl font-bold text-primary sm:text-4xl">
+            Checked at every stage
+          </h2>
+          <div className="mt-6 space-y-5 text-sm leading-relaxed text-muted-foreground">
+            <p>
+              <strong className="text-foreground">Quality assurance:</strong> we adhere to stringent
+              quality control measures at every stage of construction, so clients receive the best
+              possible service and result.
+            </p>
+            <p>
+              <strong className="text-foreground">Certifications:</strong> we are certified by the
+              Uganda National Bureau of Registration to carry out our operations.
+            </p>
+            <p>
+              <strong className="text-foreground">Safety standards:</strong> safety is our top
+              priority. We run regular training and strictly follow site safety regulations to keep
+              workers and clients secure.
+            </p>
+          </div>
+        </div>
+        <div className="relative mx-auto w-full max-w-md">
+          <div className="absolute -right-5 -bottom-5 h-24 w-24 rounded-full bg-primary" />
+          <div className="ring-photo relative aspect-square">
+            <img
+              src={qualityImage}
+              alt="Structural steel portal frame erected on a Creed project site"
+              loading="lazy"
+              className="h-full w-full object-cover"
+            />
           </div>
         </div>
       </section>
 
-      <section className="faceted border-y border-border">
-        <div className="mx-auto max-w-6xl px-4 py-16">
-          <h2 className="text-2xl font-bold text-primary">More sectors we build in</h2>
-          <div className="mt-8 grid gap-6 md:grid-cols-3">
-            {[
-              {
-                title: "Residential",
-                body: "Family homes, apartments and estate developments finished to a high standard.",
-              },
-              {
-                title: "Commercial",
-                body: "Offices, retail units and mixed-use buildings designed for daily performance.",
-              },
-              {
-                title: "Industrial",
-                body: "Warehouses, processing plants and workshops with engineered steel structures.",
-              },
-            ].map((sector) => (
-              <article key={sector.title} className="border-t-4 border-accent bg-card p-6 shadow-lift">
-                <h3 className="text-lg font-bold text-primary">{sector.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{sector.body}</p>
-              </article>
-            ))}
-          </div>
+      <section className="brand-gradient">
+        <div className="mx-auto flex max-w-6xl flex-col items-start gap-6 px-4 py-14 md:flex-row md:items-center md:justify-between">
+          <h2 className="max-w-xl text-3xl font-bold text-primary-foreground sm:text-4xl">
+            We don't just build structures; we build relationships.
+          </h2>
+          <Link
+            to="/contact"
+            className="inline-flex items-center gap-2 rounded-sm accent-gradient px-6 py-3.5 text-xs font-bold uppercase tracking-[0.14em] text-accent-foreground"
+          >
+            Schedule a consultation
+            <ArrowRight className="h-4 w-4" aria-hidden="true" />
+          </Link>
         </div>
       </section>
     </>
