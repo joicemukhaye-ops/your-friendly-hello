@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Banknote, Building2, CreditCard, MessageCircle, Smartphone } from "lucide-react";
 import { PageHero } from "@/components/site/PageHero";
+import { PesapalForm } from "@/components/site/PesapalForm";
 import { whatsappLink } from "@/lib/contact";
 
 export const Route = createFileRoute("/payments")({
@@ -34,7 +35,21 @@ function PaymentsPage() {
         description="Deposits, progress payments and final invoices — all routed straight to the Creed company account."
       />
 
-      <section className="mx-auto grid max-w-6xl gap-8 px-4 py-16 lg:grid-cols-3">
+      <section className="mx-auto max-w-4xl px-4 py-16">
+        <div className="border-t-4 border-accent bg-card p-7 shadow-lift sm:p-9">
+          <p className="text-xs font-bold uppercase tracking-[0.3em] text-accent">Pay online</p>
+          <h2 className="mt-3 text-3xl font-bold text-primary">Card &amp; mobile money checkout</h2>
+          <p className="mt-3 text-sm text-muted-foreground">
+            Powered by Pesapal. Pay by MTN MoMo, Airtel Money, Visa or Mastercard — funds settle
+            directly to the Creed company bank account and you receive an official receipt.
+          </p>
+          <div className="mt-8">
+            <PesapalForm />
+          </div>
+        </div>
+      </section>
+
+      <section className="mx-auto grid max-w-6xl gap-8 px-4 pb-16 lg:grid-cols-3">
         <article className="border-t-4 border-accent bg-card p-7 shadow-lift">
           <Building2 className="h-7 w-7 text-primary" aria-hidden="true" />
           <h2 className="mt-4 text-xl font-bold text-primary">Bank transfer</h2>
