@@ -18,8 +18,6 @@ import { Route as MissionAndVisionRouteImport } from './routes/mission-and-visio
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as PaymentsCompleteRouteImport } from './routes/payments_.complete'
-import { Route as ApiPublicPesapalIpnRouteImport } from './routes/api/public/pesapal-ipn'
 
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
@@ -66,16 +64,6 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const PaymentsCompleteRoute = PaymentsCompleteRouteImport.update({
-  id: '/payments_/complete',
-  path: '/payments/complete',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ApiPublicPesapalIpnRoute = ApiPublicPesapalIpnRouteImport.update({
-  id: '/api/public/pesapal-ipn',
-  path: '/api/public/pesapal-ipn',
-  getParentRoute: () => rootRouteImport,
-} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -87,8 +75,6 @@ export interface FileRoutesByFullPath {
   '/quote': typeof QuoteRoute
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
-  '/payments/complete': typeof PaymentsCompleteRoute
-  '/api/public/pesapal-ipn': typeof ApiPublicPesapalIpnRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -100,8 +86,6 @@ export interface FileRoutesByTo {
   '/quote': typeof QuoteRoute
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
-  '/payments/complete': typeof PaymentsCompleteRoute
-  '/api/public/pesapal-ipn': typeof ApiPublicPesapalIpnRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -114,8 +98,6 @@ export interface FileRoutesById {
   '/quote': typeof QuoteRoute
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
-  '/payments_/complete': typeof PaymentsCompleteRoute
-  '/api/public/pesapal-ipn': typeof ApiPublicPesapalIpnRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -129,8 +111,6 @@ export interface FileRouteTypes {
     | '/quote'
     | '/services'
     | '/sitemap.xml'
-    | '/payments/complete'
-    | '/api/public/pesapal-ipn'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -142,8 +122,6 @@ export interface FileRouteTypes {
     | '/quote'
     | '/services'
     | '/sitemap.xml'
-    | '/payments/complete'
-    | '/api/public/pesapal-ipn'
   id:
     | '__root__'
     | '/'
@@ -155,8 +133,6 @@ export interface FileRouteTypes {
     | '/quote'
     | '/services'
     | '/sitemap.xml'
-    | '/payments_/complete'
-    | '/api/public/pesapal-ipn'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -169,8 +145,6 @@ export interface RootRouteChildren {
   QuoteRoute: typeof QuoteRoute
   ServicesRoute: typeof ServicesRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
-  PaymentsCompleteRoute: typeof PaymentsCompleteRoute
-  ApiPublicPesapalIpnRoute: typeof ApiPublicPesapalIpnRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -238,20 +212,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/payments_/complete': {
-      id: '/payments_/complete'
-      path: '/payments/complete'
-      fullPath: '/payments/complete'
-      preLoaderRoute: typeof PaymentsCompleteRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/api/public/pesapal-ipn': {
-      id: '/api/public/pesapal-ipn'
-      path: '/api/public/pesapal-ipn'
-      fullPath: '/api/public/pesapal-ipn'
-      preLoaderRoute: typeof ApiPublicPesapalIpnRouteImport
-      parentRoute: typeof rootRouteImport
-    }
   }
 }
 
@@ -265,19 +225,7 @@ const rootRouteChildren: RootRouteChildren = {
   QuoteRoute: QuoteRoute,
   ServicesRoute: ServicesRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
-  PaymentsCompleteRoute: PaymentsCompleteRoute,
-  ApiPublicPesapalIpnRoute: ApiPublicPesapalIpnRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}

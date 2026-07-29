@@ -1,8 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Banknote, Building2, CreditCard, MessageCircle, Smartphone } from "lucide-react";
 import { PageHero } from "@/components/site/PageHero";
-import { PesapalForm } from "@/components/site/PesapalForm";
 import { whatsappLink } from "@/lib/contact";
+
 
 export const Route = createFileRoute("/payments")({
   head: () => ({
