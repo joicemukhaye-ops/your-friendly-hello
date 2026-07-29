@@ -6,7 +6,13 @@
 // You can pass additional config via defineConfig({ vite: { ... }, etc... }) if needed.
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
+// Outside Lovable (e.g. a Netlify build from the GitHub repo) the deploy target can be
+// pinned with NITRO_PRESET, for example NITRO_PRESET=netlify. When it is unset, Lovable's
+// default Cloudflare target is used, so previews and Lovable publishing are unaffected.
+const preset = process.env.NITRO_PRESET;
+
 export default defineConfig({
+  ...(preset ? { nitro: { preset } } : {}),
   tanstackStart: {
     // Redirect TanStack Start's bundled server entry to src/server.ts (our SSR error wrapper).
     // nitro/vite builds from this
