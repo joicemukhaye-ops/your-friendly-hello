@@ -1,10 +1,10 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 import storyImage from "@/assets/story-warehouse.jpg";
-import denisAsset from "@/assets/team-denis.jpg.asset.json";
-import fuljensioAsset from "@/assets/team-fuljensio.jpg.asset.json";
-import michaelAsset from "@/assets/team-michael.jpg.asset.json";
-import edmundAsset from "@/assets/team-edmund.jpg.asset.json";
+import denisAsset from "@/assets/team-denis.jpg";
+import fuljensioAsset from "@/assets/team-fuljensio.jpg";
+import michaelAsset from "@/assets/team-michael.jpg";
+import edmundAsset from "@/assets/team-edmund.jpg";
 import { PageHero } from "@/components/site/PageHero";
 import { projects, qualityImage } from "@/lib/projects";
 
@@ -34,28 +34,28 @@ const team = [
   {
     name: "Kisekka Denis",
     role: "Team Leader",
-    photo: denisAsset.url,
+    photo: denisAsset,
     bio: "With over 5 years in the industry, Denis leads with a vision for innovative construction and design solutions.",
     focus: "Design direction · Client relationships",
   },
   {
     name: "Kyagambiddwa Fuljensio",
     role: "Project Manager",
-    photo: fuljensioAsset.url,
+    photo: fuljensioAsset,
     bio: "Brings expert leadership in construction and implementation to ensure seamless project execution and structural excellence.",
     focus: "Programme · Site supervision",
   },
   {
     name: "Matovu Michael",
     role: "Finance & Procurement",
-    photo: michaelAsset.url,
+    photo: michaelAsset,
     bio: "Excels in optimising budgets, streamlining procurement and ensuring cost-effective resource management.",
     focus: "Budgets · Materials sourcing",
   },
   {
     name: "Tabula Edmund Ntale",
     role: "Administrator",
-    photo: edmundAsset.url,
+    photo: edmundAsset,
     bio: "Streamlines operations, enhances organisational efficiency and ensures seamless project coordination.",
     focus: "Operations · Coordination",
   },

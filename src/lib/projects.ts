@@ -1,18 +1,18 @@
-import warehouseA from "@/assets/warehouse-a.jpg.asset.json";
-import warehouseB from "@/assets/warehouse-b.jpg.asset.json";
-import warehouseC from "@/assets/warehouse-c.jpg.asset.json";
-import skylightA from "@/assets/skylight-a.jpg.asset.json";
-import skylightB from "@/assets/skylight-b.jpg.asset.json";
-import skylightC from "@/assets/skylight-c.jpg.asset.json";
-import coffeeA from "@/assets/coffee-a.jpg.asset.json";
-import coffeeB from "@/assets/coffee-b.jpg.asset.json";
-import coffeeC from "@/assets/coffee-c.jpg.asset.json";
-import theresaA from "@/assets/theresa-a.jpg.asset.json";
-import theresaB from "@/assets/theresa-b.jpg.asset.json";
-import theresaC from "@/assets/theresa-c.jpg.asset.json";
-import qualityFrame from "@/assets/quality-frame.jpg.asset.json";
+import warehouseA from "@/assets/warehouse-a.jpg";
+import warehouseB from "@/assets/warehouse-b.jpg";
+import warehouseC from "@/assets/warehouse-c.jpg";
+import skylightA from "@/assets/skylight-a.jpg";
+import skylightB from "@/assets/skylight-b.jpg";
+import skylightC from "@/assets/skylight-c.jpg";
+import coffeeA from "@/assets/coffee-a.jpg";
+import coffeeB from "@/assets/coffee-b.jpg";
+import coffeeC from "@/assets/coffee-c.jpg";
+import theresaA from "@/assets/theresa-a.jpg";
+import theresaB from "@/assets/theresa-b.jpg";
+import theresaC from "@/assets/theresa-c.jpg";
+import qualityFrame from "@/assets/quality-frame.jpg";
 
-export const qualityImage = qualityFrame.url;
+export const qualityImage = qualityFrame;
 
 export interface ProjectPhoto {
   src: string;
@@ -48,9 +48,9 @@ export const projects: Project[] = [
       "Boundary walling, hardstanding and external works",
     ],
     photos: [
-      { src: warehouseA.url, caption: "Steel truss roof frame erected over concrete block walls." },
-      { src: warehouseB.url, caption: "Sunset progress: purlin assembly and vent-block walling." },
-      { src: warehouseC.url, caption: "Completed roof with ridge vents; perimeter walling underway." },
+      { src: warehouseA, caption: "Steel truss roof frame erected over concrete block walls." },
+      { src: warehouseB, caption: "Sunset progress: purlin assembly and vent-block walling." },
+      { src: warehouseC, caption: "Completed roof with ridge vents; perimeter walling underway." },
     ],
   },
   {
@@ -69,9 +69,9 @@ export const projects: Project[] = [
       "Works completed around an occupied school programme",
     ],
     photos: [
-      { src: skylightA.url, caption: "Laminated glass panels seated in the aluminium glazing grid." },
-      { src: skylightB.url, caption: "New purlin layout set out over the dormitory gable." },
-      { src: skylightC.url, caption: "Roof sheeting installed over the new steel roof structure." },
+      { src: skylightA, caption: "Laminated glass panels seated in the aluminium glazing grid." },
+      { src: skylightB, caption: "New purlin layout set out over the dormitory gable." },
+      { src: skylightC, caption: "Roof sheeting installed over the new steel roof structure." },
     ],
   },
   {
@@ -90,9 +90,9 @@ export const projects: Project[] = [
       "Long-span roof sheeting with generous eaves",
     ],
     photos: [
-      { src: coffeeA.url, caption: "Slab pour and finishing in progress on the drier floor." },
-      { src: coffeeB.url, caption: "Reinforcement cages set in excavated foundation trenches." },
-      { src: coffeeC.url, caption: "Completed steel frame and roof over the drier warehouse." },
+      { src: coffeeA, caption: "Slab pour and finishing in progress on the drier floor." },
+      { src: coffeeB, caption: "Reinforcement cages set in excavated foundation trenches." },
+      { src: coffeeC, caption: "Completed steel frame and roof over the drier warehouse." },
     ],
   },
   {
@@ -111,9 +111,9 @@ export const projects: Project[] = [
       "G26 iron sheet roof covering and flashings",
     ],
     photos: [
-      { src: theresaA.url, caption: "Steel beams landed and levelled on the concrete ring beam." },
-      { src: theresaB.url, caption: "Rafters braced and aligned across the dormitory block." },
-      { src: theresaC.url, caption: "Completed roof structure ready for iron sheet covering." },
+      { src: theresaA, caption: "Steel beams landed and levelled on the concrete ring beam." },
+      { src: theresaB, caption: "Rafters braced and aligned across the dormitory block." },
+      { src: theresaC, caption: "Completed roof structure ready for iron sheet covering." },
     ],
   },
 ];
