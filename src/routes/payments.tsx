@@ -38,7 +38,7 @@ function PaymentsPage() {
 
 
 
-      <section className="mx-auto grid max-w-6xl gap-8 px-4 pb-16 lg:grid-cols-3">
+      <section className="mx-auto grid max-w-6xl gap-8 px-4 py-16 lg:grid-cols-3">
         <article className="border-t-4 border-accent bg-card p-7 shadow-lift">
           <Building2 className="h-7 w-7 text-primary" aria-hidden="true" />
           <h2 className="mt-4 text-xl font-bold text-primary">Bank transfer</h2>
