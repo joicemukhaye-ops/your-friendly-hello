@@ -189,7 +189,7 @@ function Index() {
               className="group block shadow-lift"
             >
               <img
-                src={project.photos[0].src}
+                src={project.photos[0]?.src}
                 alt={`${project.title} in ${project.location} — ${project.materials}`}
                 loading="lazy"
                 className="h-56 w-full object-cover"

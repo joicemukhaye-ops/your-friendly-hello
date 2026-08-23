@@ -19,8 +19,8 @@ export const Route = createFileRoute("/projects")({
         content:
           "Featured Creed builds: Kayunga processing warehouse, Kisubi glass skylight, Gomba coffee drier and St. Theresa dormitory.",
       },
-      { property: "og:image", content: projects[0].photos[0].src },
-      { name: "twitter:image", content: projects[0].photos[0].src },
+      { property: "og:image", content: projects[0]?.photos[0]?.src ?? "" },
+      { name: "twitter:image", content: projects[0]?.photos[0]?.src ?? "" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
