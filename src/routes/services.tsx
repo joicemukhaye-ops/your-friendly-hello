@@ -10,23 +10,22 @@ import {
   Building,
   Store,
   Factory,
-  MessageCircle,
   Download,
 } from "lucide-react";
 import servicesImage from "@/assets/services-beams.jpg";
 import { PageHero } from "@/components/site/PageHero";
-import { COMPANY_PROFILE_URL, whatsappLink } from "@/lib/contact";
+import { COMPANY_PROFILE_URL } from "@/lib/contact";
 
 export const Route = createFileRoute("/services")({
   head: () => ({
     meta: [
-      { title: "Our Services — Creed Design & Construction East Africa" },
+      { title: "Our Services | Creed Design & Construction East Africa" },
       {
         name: "description",
         content:
           "Design and planning, construction and implementation, infrastructure development, maintenance and rehabilitation, and consultancy services.",
       },
-      { property: "og:title", content: "Our Services — Creed Design & Construction East Africa" },
+      { property: "og:title", content: "Our Services | Creed Design & Construction East Africa" },
       {
         property: "og:description",
         content:
@@ -42,45 +41,90 @@ const services = [
     icon: Compass,
     title: "Design and Planning",
     body: "Architectural concepts, structural design, approvals support and buildable documentation.",
-    points: ["Architectural & structural drawings", "3D visualisation", "Local authority approvals", "Bills of quantities"],
+    points: [
+      "Architectural & structural drawings",
+      "3D visualisation",
+      "Local authority approvals",
+      "Bills of quantities",
+    ],
   },
   {
     icon: HardHat,
     title: "Construction & Implementation",
     body: "Full building works for residential, commercial and industrial projects with supervised site teams.",
-    points: ["Substructure & superstructure", "Roofing & finishes", "MEP coordination", "Health & safety compliance"],
+    points: [
+      "Substructure & superstructure",
+      "Roofing & finishes",
+      "MEP coordination",
+      "Health & safety compliance",
+    ],
   },
   {
     icon: RouteIcon,
     title: "Infrastructure Development",
     body: "Access works, drainage, external works and supporting civil infrastructure.",
-    points: ["Access roads & paving", "Storm & foul drainage", "Water & power reticulation", "Boundary & landscaping"],
+    points: [
+      "Access roads & paving",
+      "Storm & foul drainage",
+      "Water & power reticulation",
+      "Boundary & landscaping",
+    ],
   },
   {
     icon: Wrench,
     title: "Maintenance & Rehabilitation",
     body: "Renovation, structural repair and planned maintenance that extends asset life.",
-    points: ["Structural repairs", "Refurbishment & fit-out", "Waterproofing", "Planned preventive maintenance"],
+    points: [
+      "Structural repairs",
+      "Refurbishment & fit-out",
+      "Waterproofing",
+      "Planned preventive maintenance",
+    ],
   },
   {
     icon: ClipboardList,
     title: "Consultancy Services",
     body: "Feasibility, costing, project management and technical advisory from concept to handover.",
-    points: ["Feasibility & site studies", "Cost planning", "Project & construction management", "Technical due diligence"],
+    points: [
+      "Feasibility & site studies",
+      "Cost planning",
+      "Project & construction management",
+      "Technical due diligence",
+    ],
   },
 ];
 
 const sectors = [
-  { icon: Building, title: "Residential", body: "Homes, apartments and residential estates finished to a high standard." },
-  { icon: Store, title: "Commercial", body: "Retail, offices, hospitality and mixed-use developments." },
-  { icon: Factory, title: "Industrial", body: "Warehouses, factories and steel-frame production facilities." },
+  {
+    icon: Building,
+    title: "Residential",
+    body: "Homes, apartments and residential estates finished to a high standard.",
+  },
+  {
+    icon: Store,
+    title: "Commercial",
+    body: "Retail, offices, hospitality and mixed-use developments.",
+  },
+  {
+    icon: Factory,
+    title: "Industrial",
+    body: "Warehouses, factories and steel-frame production facilities.",
+  },
 ];
 
 const process = [
   { step: "01", title: "Brief & site visit", body: "We listen to your goals and assess the site." },
-  { step: "02", title: "Design & costing", body: "Drawings, specifications and a transparent quotation." },
+  {
+    step: "02",
+    title: "Design & costing",
+    body: "Drawings, specifications and a transparent quotation.",
+  },
   { step: "03", title: "Build", body: "Supervised construction with weekly progress reporting." },
-  { step: "04", title: "Handover & care", body: "Snag-free handover plus optional maintenance plan." },
+  {
+    step: "04",
+    title: "Handover & care",
+    body: "Snag-free handover plus optional maintenance plan.",
+  },
 ];
 
 function ServicesPage() {
@@ -90,7 +134,7 @@ function ServicesPage() {
         eyebrow="Capabilities"
         lead="OUR"
         highlight="SERVICES"
-        description="Five core service lines that cover the full building lifecycle — delivered by an experienced in-house team of architects, engineers and site professionals."
+        description="Five core service lines that cover the full building lifecycle, delivered by an experienced in-house team of architects, engineers and site professionals."
       />
 
       <section className="mx-auto grid max-w-6xl gap-12 px-4 py-20 lg:grid-cols-[0.85fr_1.15fr]">
@@ -108,8 +152,7 @@ function ServicesPage() {
           <div className="border-t-4 border-accent bg-card p-6 shadow-lift">
             <h3 className="text-lg font-bold text-primary">Need a quick estimate?</h3>
             <p className="mt-2 text-sm text-muted-foreground">
-              Use our online quotation system, or send us a message on WhatsApp — we usually respond
-              the same day.
+              Use our online quotation system and we usually respond the same day.
             </p>
             <div className="mt-4 flex flex-wrap gap-2">
               <Link
@@ -119,15 +162,6 @@ function ServicesPage() {
                 Request quotation
                 <ArrowRight className="h-4 w-4" aria-hidden="true" />
               </Link>
-              <a
-                href={whatsappLink("Hello Creed, I'd like a quote for a project.")}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-sm bg-[#25D366] px-4 py-2.5 text-xs font-bold uppercase tracking-[0.13em] text-white"
-              >
-                <MessageCircle className="h-4 w-4" aria-hidden="true" />
-                WhatsApp
-              </a>
             </div>
           </div>
         </div>
@@ -147,7 +181,10 @@ function ServicesPage() {
                   <ul className="mt-3 grid gap-1.5 sm:grid-cols-2">
                     {points.map((p) => (
                       <li key={p} className="flex items-start gap-2 text-sm text-foreground">
-                        <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-accent" aria-hidden="true" />
+                        <CheckCircle2
+                          className="mt-0.5 h-4 w-4 shrink-0 text-accent"
+                          aria-hidden="true"
+                        />
                         {p}
                       </li>
                     ))}
@@ -181,7 +218,9 @@ function ServicesPage() {
         <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {process.map(({ step, title, body }) => (
             <div key={step} className="border-t-4 border-primary bg-card p-6 shadow-lift">
-              <span className="text-xs font-bold uppercase tracking-[0.2em] text-accent">Step {step}</span>
+              <span className="text-xs font-bold uppercase tracking-[0.2em] text-accent">
+                Step {step}
+              </span>
               <h3 className="mt-2 text-lg font-bold text-primary">{title}</h3>
               <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{body}</p>
             </div>

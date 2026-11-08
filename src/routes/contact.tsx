@@ -7,13 +7,13 @@ import { COMPANY_PROFILE_URL, whatsappLink } from "@/lib/contact";
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact Us — Creed Design & Construction East Africa" },
+      { title: "Contact Us | Creed Design & Construction East Africa" },
       {
         name: "description",
         content:
           "Reach Creed Design and Construction Company East Africa Ltd at Grove Mall, Kitintale, Kampala. Call +256 702 806 852 or email us about new projects.",
       },
-      { property: "og:title", content: "Contact Us — Creed Design & Construction East Africa" },
+      { property: "og:title", content: "Contact Us | Creed Design & Construction East Africa" },
       {
         property: "og:description",
         content: "We welcome inquiries for new projects and collaborations. Reach out to us today.",
@@ -145,7 +145,7 @@ function ContactPage() {
           <div className="mt-3 h-1 w-14 bg-accent" />
           <div className="mt-6 overflow-hidden rounded-sm border border-border shadow-panel">
             <iframe
-              title="Creed office location — Grove Mall, Kitintale, Kampala"
+              title="Creed office location: Grove Mall, Kitintale, Kampala"
               src="https://www.google.com/maps?q=Grove+Mall+Kitintale+Kampala&output=embed"
               width="100%"
               height="360"

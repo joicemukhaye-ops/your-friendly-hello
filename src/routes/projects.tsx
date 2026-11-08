@@ -1,19 +1,18 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, Layers, MapPin, MessageCircle, ShieldCheck, Wrench } from "lucide-react";
+import { ArrowRight, Layers, MapPin, ShieldCheck, Wrench } from "lucide-react";
 import { PageHero } from "@/components/site/PageHero";
 import { projects, qualityImage } from "@/lib/projects";
-import { whatsappLink } from "@/lib/contact";
 
 export const Route = createFileRoute("/projects")({
   head: () => ({
     meta: [
-      { title: "Our Projects — Creed Design & Construction East Africa" },
+      { title: "Our Projects | Creed Design & Construction East Africa" },
       {
         name: "description",
         content:
           "Warehouses, dormitories, skylights and agro-industrial facilities delivered by Creed Design and Construction Company East Africa Ltd across Uganda.",
       },
-      { property: "og:title", content: "Our Projects — Creed Design & Construction" },
+      { property: "og:title", content: "Our Projects | Creed Design & Construction" },
       {
         property: "og:description",
         content:
@@ -31,7 +30,7 @@ export const Route = createFileRoute("/projects")({
 const disciplines = [
   {
     title: "Steel works",
-    body: "Precision engineering and durability — robust frameworks for industrial, commercial and residential structures. We fabricate and install high-quality steel products tailored to each project.",
+    body: "Precision engineering and durability: robust frameworks for industrial, commercial and residential structures. We fabricate and install high-quality steel products tailored to each project.",
   },
   {
     title: "Concrete works",
@@ -50,7 +49,7 @@ function ProjectsPage() {
         eyebrow="Featuring projects"
         lead="OUR"
         highlight="PROJECTS"
-        description="A look at work delivered by our site teams across Uganda — industrial warehouses, agro-processing facilities, school dormitories and specialist steel and glass installations."
+        description="A look at work delivered by our site teams across Uganda: industrial warehouses, agro-processing facilities, school dormitories and specialist steel and glass installations."
       />
 
       <section className="mx-auto max-w-6xl px-4 py-16">
@@ -92,7 +91,10 @@ function ProjectsPage() {
                     </span>
                   </li>
                   <li className="flex gap-3">
-                    <ShieldCheck className="mt-0.5 h-4 w-4 shrink-0 text-accent" aria-hidden="true" />
+                    <ShieldCheck
+                      className="mt-0.5 h-4 w-4 shrink-0 text-accent"
+                      aria-hidden="true"
+                    />
                     <span>
                       <strong className="text-foreground">Scope:</strong> {p.scope}
                     </span>
@@ -112,15 +114,6 @@ function ProjectsPage() {
                     Start a similar project
                     <ArrowRight className="h-4 w-4" aria-hidden="true" />
                   </Link>
-                  <a
-                    href={whatsappLink(`Hi Creed, I'd like to discuss a project like ${p.title}.`)}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 rounded-sm bg-[#25D366] px-6 py-3.5 text-xs font-bold uppercase tracking-[0.14em] text-white"
-                  >
-                    <MessageCircle className="h-4 w-4" aria-hidden="true" />
-                    Chat on WhatsApp
-                  </a>
                 </div>
               </div>
 
@@ -132,7 +125,7 @@ function ProjectsPage() {
                   >
                     <img
                       src={photo.src}
-                      alt={`${p.title}, ${p.location} — ${photo.caption}`}
+                      alt={`${p.title}, ${p.location}: ${photo.caption}`}
                       loading={index === 0 && i === 0 ? "eager" : "lazy"}
                       className={`w-full object-cover ${i === 0 ? "h-72" : "h-52"}`}
                     />

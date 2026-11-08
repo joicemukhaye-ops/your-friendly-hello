@@ -1,21 +1,22 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, Building2, Download, HardHat, MessageCircle, Ruler, ShieldCheck } from "lucide-react";
+import { ArrowRight, Building2, Download, HardHat, Ruler, ShieldCheck } from "lucide-react";
 import heroImage from "@/assets/hero-steel-frame.jpg";
 import storyImage from "@/assets/story-warehouse.jpg";
 import { projects } from "@/lib/projects";
 import { SectionHeading } from "@/components/site/SectionHeading";
-import { COMPANY_PROFILE_URL, whatsappLink } from "@/lib/contact";
+import { CountUp } from "@/components/site/CountUp";
+import { COMPANY_PROFILE_URL } from "@/lib/contact";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Creed Design & Construction — Building East Africa" },
+      { title: "Creed Design & Construction | Building East Africa" },
       {
         name: "description",
         content:
           "Creed Design and Construction Company East Africa Ltd delivers residential, commercial and industrial building solutions from Kampala, Uganda.",
       },
-      { property: "og:title", content: "Creed Design & Construction — Building East Africa" },
+      { property: "og:title", content: "Creed Design & Construction | Building East Africa" },
       {
         property: "og:description",
         content:
@@ -45,7 +46,7 @@ const pillars = [
   {
     icon: Building2,
     title: "Timely delivery",
-    body: "Projects handed over on programme — a trusted partner across the region.",
+    body: "Projects handed over on programme. A trusted partner across the region.",
   },
 ];
 
@@ -62,10 +63,11 @@ function Index() {
         />
         <div className="absolute inset-0 bg-primary-deep/70" />
         <div className="relative mx-auto max-w-6xl px-4 py-28 sm:py-36">
-          <p className="text-xs font-bold uppercase tracking-[0.3em] text-accent">
-            Design &amp; Construction · East Africa
+          <p className="flex items-center gap-3 text-xs font-bold uppercase tracking-[0.14em] text-accent sm:tracking-[0.22em]">
+            <span className="hidden h-0.5 w-10 shrink-0 bg-accent sm:block" aria-hidden="true" />
+            Building East Africa from Kampala
           </p>
-          <h1 className="mt-6 max-w-3xl text-5xl font-bold text-primary-foreground sm:text-7xl">
+          <h1 className="mt-6 max-w-3xl text-4xl font-bold text-primary-foreground sm:text-6xl lg:text-7xl">
             We build structures that outlast expectations
           </h1>
           <p className="mt-6 max-w-xl text-base leading-relaxed text-primary-foreground/80">
@@ -80,15 +82,6 @@ function Index() {
               Request a quote
               <ArrowRight className="h-4 w-4" aria-hidden="true" />
             </Link>
-            <a
-              href={whatsappLink("Hello Creed, I'd like to talk about a project.")}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-sm bg-[#25D366] px-6 py-3.5 text-xs font-bold uppercase tracking-[0.14em] text-white shadow-lift"
-            >
-              <MessageCircle className="h-4 w-4" aria-hidden="true" />
-              WhatsApp us
-            </a>
             <a
               href={COMPANY_PROFILE_URL}
               target="_blank"
@@ -105,10 +98,7 @@ function Index() {
       <section className="faceted border-b border-border">
         <div className="mx-auto grid max-w-6xl gap-6 px-4 py-16 sm:grid-cols-2 lg:grid-cols-4">
           {pillars.map(({ icon: Icon, title, body }) => (
-            <article
-              key={title}
-              className="border-t-4 border-accent bg-card p-6 shadow-lift"
-            >
+            <article key={title} className="border-t-4 border-accent bg-card p-6 shadow-lift">
               <Icon className="h-7 w-7 text-primary" aria-hidden="true" />
               <h2 className="mt-4 text-xl font-bold text-primary">{title}</h2>
               <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{body}</p>
@@ -131,19 +121,28 @@ function Index() {
               <dt className="text-xs font-bold uppercase tracking-[0.12em] text-muted-foreground">
                 Sectors
               </dt>
-              <dd className="mt-1 text-3xl font-bold text-primary">03</dd>
+              <dd className="mt-1 text-3xl font-bold text-primary">
+                <CountUp to={3} pad={2} />
+              </dd>
             </div>
             <div>
               <dt className="text-xs font-bold uppercase tracking-[0.12em] text-muted-foreground">
                 Services
               </dt>
-              <dd className="mt-1 text-3xl font-bold text-primary">05</dd>
+              <dd className="mt-1 text-3xl font-bold text-primary">
+                <CountUp to={5} pad={2} delay={200} />
+              </dd>
             </div>
             <div>
               <dt className="text-xs font-bold uppercase tracking-[0.12em] text-muted-foreground">
                 Based in
               </dt>
-              <dd className="mt-1 text-3xl font-bold text-primary">UG</dd>
+              <dd className="mt-1 text-xl font-bold text-primary sm:text-3xl">
+                Kampala
+                <span className="block text-xs font-semibold uppercase tracking-[0.12em] text-muted-foreground">
+                  Uganda
+                </span>
+              </dd>
             </div>
           </dl>
           <Link
@@ -190,7 +189,7 @@ function Index() {
             >
               <img
                 src={project.photos[0]?.src}
-                alt={`${project.title} in ${project.location} — ${project.materials}`}
+                alt={`${project.title} in ${project.location}: ${project.materials}`}
                 loading="lazy"
                 className="h-56 w-full object-cover"
               />
@@ -206,7 +205,6 @@ function Index() {
             </Link>
           ))}
         </div>
-
       </section>
 
       <section className="brand-gradient">

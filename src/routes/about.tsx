@@ -6,18 +6,19 @@ import fuljensioAsset from "@/assets/team-fuljensio.jpg";
 import michaelAsset from "@/assets/team-michael.jpg";
 import edmundAsset from "@/assets/team-edmund.jpg";
 import { PageHero } from "@/components/site/PageHero";
+import { CountUp } from "@/components/site/CountUp";
 import { projects, qualityImage } from "@/lib/projects";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "Our Story & Team — Creed Design & Construction East Africa" },
+      { title: "Our Story & Team | Creed Design & Construction East Africa" },
       {
         name: "description",
         content:
-          "Who we are, how we work and the people who lead Creed Design and Construction Company East Africa Ltd — innovative, sustainable, high-quality building solutions.",
+          "Who we are, how we work and the people who lead Creed Design and Construction Company East Africa Ltd. Innovative, sustainable, high-quality building solutions.",
       },
-      { property: "og:title", content: "Our Story & Team — Creed Design & Construction" },
+      { property: "og:title", content: "Our Story & Team | Creed Design & Construction" },
       {
         property: "og:description",
         content:
@@ -39,9 +40,9 @@ const team = [
     focus: "Design direction · Client relationships",
   },
   {
-    name: "Kyagambiddwa Fuljensio",
+    name: "Kyagambiddwa Flujensio",
     role: "Project Manager",
-    photo: fuljensioAsset,
+    photo: edmundAsset,
     bio: "Brings expert leadership in construction and implementation to ensure seamless project execution and structural excellence.",
     focus: "Programme · Site supervision",
   },
@@ -55,7 +56,7 @@ const team = [
   {
     name: "Tabula Edmund Ntale",
     role: "Administrator",
-    photo: edmundAsset,
+    photo: fuljensioAsset,
     bio: "Streamlines operations, enhances organisational efficiency and ensures seamless project coordination.",
     focus: "Operations · Coordination",
   },
@@ -150,15 +151,19 @@ function AboutPage() {
             <dl className="mt-4 grid grid-cols-2 gap-4">
               <div>
                 <dt className="text-xs uppercase tracking-[0.12em] text-muted-foreground">Based in</dt>
-                <dd className="mt-1 text-2xl font-bold text-primary">Uganda</dd>
+                <dd className="mt-1 text-2xl font-bold text-primary">Kampala, Uganda</dd>
               </div>
               <div>
                 <dt className="text-xs uppercase tracking-[0.12em] text-muted-foreground">Sectors</dt>
-                <dd className="mt-1 text-2xl font-bold text-primary">3</dd>
+                <dd className="mt-1 text-2xl font-bold text-primary">
+                  <CountUp to={3} />
+                </dd>
               </div>
               <div>
                 <dt className="text-xs uppercase tracking-[0.12em] text-muted-foreground">Service lines</dt>
-                <dd className="mt-1 text-2xl font-bold text-primary">5</dd>
+                <dd className="mt-1 text-2xl font-bold text-primary">
+                  <CountUp to={5} delay={200} />
+                </dd>
               </div>
               <div>
                 <dt className="text-xs uppercase tracking-[0.12em] text-muted-foreground">Coverage</dt>
@@ -216,7 +221,7 @@ function AboutPage() {
           </p>
           <h2 className="mt-3 text-3xl font-bold text-primary sm:text-4xl">Meet our team</h2>
           <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground">
-            A small, accountable leadership team — you deal directly with the people running your
+            A small, accountable leadership team. You deal directly with the people running your
             project, not a call centre.
           </p>
           <div className="mt-12 grid gap-10 sm:grid-cols-2 lg:grid-cols-4">

@@ -3,17 +3,16 @@ import { Banknote, Building2, CreditCard, MessageCircle, Smartphone } from "luci
 import { PageHero } from "@/components/site/PageHero";
 import { whatsappLink } from "@/lib/contact";
 
-
 export const Route = createFileRoute("/payments")({
   head: () => ({
     meta: [
-      { title: "Payments — Creed Design & Construction" },
+      { title: "Payments | Creed Design & Construction" },
       {
         name: "description",
         content:
           "Pay Creed Design & Construction East Africa securely via bank transfer, mobile money or card. Funds are deposited directly to the company account.",
       },
-      { property: "og:title", content: "Payments — Creed Design & Construction" },
+      { property: "og:title", content: "Payments | Creed Design & Construction" },
       {
         property: "og:description",
         content: "Bank transfer, mobile money and card options for project deposits and invoices.",
@@ -32,11 +31,8 @@ function PaymentsPage() {
         eyebrow="Secure payments"
         lead="MAKE A"
         highlight="PAYMENT"
-        description="Deposits, progress payments and final invoices — all routed straight to the Creed company account."
+        description="Deposits, progress payments and final invoices, all routed straight to the Creed company account."
       />
-
-
-
 
       <section className="mx-auto grid max-w-6xl gap-8 px-4 py-16 lg:grid-cols-3">
         <article className="border-t-4 border-accent bg-card p-7 shadow-lift">
@@ -67,22 +63,16 @@ function PaymentsPage() {
             <Row k="Airtel Money" v="+256 700 608 641" />
             <Row k="Reference" v="Your project code" />
           </dl>
-          <a
-            href={whatsappLink("Hello Creed, I'd like to make a mobile money payment.")}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-5 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.13em] text-primary hover:text-accent"
-          >
-            <MessageCircle className="h-4 w-4" aria-hidden="true" />
-            Confirm on WhatsApp
-          </a>
+          <p className="mt-4 text-xs text-muted-foreground">
+            Use your project code as the reference, then notify us below.
+          </p>
         </article>
 
         <article className="border-t-4 border-accent bg-card p-7 shadow-lift">
           <CreditCard className="h-7 w-7 text-primary" aria-hidden="true" />
           <h2 className="mt-4 text-xl font-bold text-primary">Card &amp; online</h2>
           <p className="mt-2 text-sm text-muted-foreground">
-            Visa, Mastercard and online transfers via our secure payment link — issued per invoice
+            Visa, Mastercard and online transfers via our secure payment link, issued per invoice
             and settled directly to our bank account.
           </p>
           <a
@@ -112,7 +102,7 @@ function PaymentsPage() {
             </div>
           </div>
           <a
-            href={whatsappLink("Hello Creed, I've made a payment — here are the details:")}
+            href={whatsappLink("Hello Creed, I've made a payment. Here are the details:")}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 rounded-sm bg-[#25D366] px-5 py-3 text-xs font-bold uppercase tracking-[0.14em] text-white shadow-lift"

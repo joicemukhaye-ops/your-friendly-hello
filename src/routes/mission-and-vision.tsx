@@ -5,13 +5,13 @@ import { PageHero } from "@/components/site/PageHero";
 export const Route = createFileRoute("/mission-and-vision")({
   head: () => ({
     meta: [
-      { title: "Mission & Vision — Creed Design & Construction" },
+      { title: "Mission & Vision | Creed Design & Construction" },
       {
         name: "description",
         content:
           "Creed's mission: superior construction and design services through advanced technologies, eco-friendly practices and client-centric solutions.",
       },
-      { property: "og:title", content: "Mission & Vision — Creed Design & Construction" },
+      { property: "og:title", content: "Mission & Vision | Creed Design & Construction" },
       {
         property: "og:description",
         content:

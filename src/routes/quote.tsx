@@ -7,13 +7,13 @@ import { EMAIL_PRIMARY, PHONE_PRIMARY, whatsappLink } from "@/lib/contact";
 export const Route = createFileRoute("/quote")({
   head: () => ({
     meta: [
-      { title: "Request a Quotation — Creed Design & Construction" },
+      { title: "Request a Quotation | Creed Design & Construction" },
       {
         name: "description",
         content:
           "Request an automated or human-assisted quotation from Creed Design & Construction East Africa. Instant WhatsApp submission or email a detailed brief.",
       },
-      { property: "og:title", content: "Request a Quotation — Creed Design & Construction" },
+      { property: "og:title", content: "Request a Quotation | Creed Design & Construction" },
       {
         property: "og:description",
         content:
@@ -59,7 +59,7 @@ function QuotePage() {
 
   const message = useMemo(() => {
     return [
-      "*New Quotation Request — Creed*",
+      "*New Quotation Request: Creed*",
       `Name: ${form.name}`,
       form.company ? `Company: ${form.company}` : null,
       `Phone: ${form.phone}`,
@@ -214,7 +214,7 @@ function QuotePage() {
             </a>
           </div>
           <p className="text-xs text-muted-foreground">
-            Fields marked * are required. Your details go straight to our quotations desk — no data
+            Fields marked * are required. Your details go straight to our quotations desk. No data
             is stored on this website.
           </p>
         </form>
@@ -226,7 +226,7 @@ function QuotePage() {
               {[
                 "Instant WhatsApp acknowledgement with an initial cost range.",
                 "A senior estimator reviews your brief within 24 working hours.",
-                "Detailed, itemised quotation issued by email — no obligation.",
+                "Detailed, itemised quotation issued by email, no obligation.",
                 "Optional site visit for accurate measurements and finishes.",
               ].map((line) => (
                 <li key={line} className="flex gap-2">

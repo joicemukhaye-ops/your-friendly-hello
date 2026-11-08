@@ -84,7 +84,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         name: "description",
         content:
-          "Creed Design and Construction Company East Africa Ltd — construction, design and infrastructure delivery in Kampala and across East Africa.",
+          "Creed Design and Construction Company East Africa Ltd: construction, design and infrastructure delivery in Kampala and across East Africa.",
       },
       { name: "author", content: "Creed Design and Construction Company East Africa Ltd" },
       { property: "og:type", content: "website" },
